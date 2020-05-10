@@ -1,0 +1,34 @@
+eHd8JTtSr
+UaxmkjlfI
+v76g8xU88
+UHVuVOoUW
+JDcXAuNdI
+KYCnuRFKB
+8B9nQzt3P
+QpMy4MQXR
+YjT0mBj2n
+zWYbHXAeZ
+
+
+
+<?php
+// db connection
+include '_Config/db_connection.php';
+
+// GET api key from the url
+$api_key= $_GET['api_key'];
+
+// sql query to verify the api key
+$sql = "SELECT api_key FROM api_key WHERE api_key=$api_key ";
+
+$result = $conn->query($sql);
+
+if($result=1){
+    echo "the api key is avaliable";
+    exit();
+}
+else{
+    echo "wrong api key";
+}
+
+?>
